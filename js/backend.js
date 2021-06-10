@@ -1,5 +1,5 @@
 function shortLink(){
-
+  document.getElementById("short-button").innerHTML = "Please wait ...";
   var input_url = document.getElementById("input_url");
 
   var myHeaders = new Headers();
@@ -23,10 +23,10 @@ function shortLink(){
     .then(response => response.json())
     .then( result => obj = result)
     .then(()=>{
-      document.getElementById("input_url").value = "Please wait ...";
       output_URL = obj.outputText
       console.log(output_URL);
       document.getElementById("input_url").value = output_URL;
+      document.getElementById("short-button").innerHTML = "SHORTEN";
     })
     .catch(error => console.log('error', error));
 }
